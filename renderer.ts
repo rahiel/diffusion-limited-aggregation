@@ -5,6 +5,7 @@ let color = require("tinycolor2");
 
 let app;
 let worker = new Worker("");
+let workerPath = (<HTMLSpanElement>document.getElementById("workerPath")).textContent;
 let button = document.getElementById("start");
 button.onclick = start;
 
@@ -14,7 +15,7 @@ function start() {
         app.destroy(true);
     }
     worker.terminate();
-    worker = new Worker("worker.js");
+    worker = new Worker(workerPath);
 
     let config = (<HTMLInputElement>document.getElementById("config")).value;
     let latticeSize = parseInt((<HTMLInputElement>document.getElementById("latticeSize")).value);
