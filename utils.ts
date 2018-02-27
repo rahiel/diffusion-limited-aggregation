@@ -1,9 +1,6 @@
-let leftPad = require("left-pad");
-
-
 // left fill with zero's
 export function zfill(s: string, width: number) {
-    return leftPad(s, width, '0');
+    return s.padStart(width, "0");
 }
 
 // string reversal
