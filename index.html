@@ -4,11 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+     .margin-b {
+         margin-bottom: 10px;
+     }
+    </style>
   </head>
   <body>
     <div id="demo">
       <label for="config">Configuration:</label>
-      <select id="config">
+      <select class="margin-b" id="config">
         <option value="middle" selected>Seed in the middle</option>
         <option value="bottom">Seed at bottom</option>
       </select>
@@ -16,16 +21,21 @@
       <br>
 
       <label for="latticeSize">Lattice size:</label>
-      <input id="latticeSize" value="400">
+      <input class="margin-b" id="latticeSize" type="number" value="400" step="5" min="10">
 
       <label for="clusterSize">Cluster size:</label>
-      <input id="clusterSize" value="6000">
+      <input class="margin-b" id="clusterSize" type="number" value="6000" step="50" min="1">
 
-      <br><br>
+      <br>
 
-      <button type="button" id="start">Start</button>
+      <label for="stickingProbability">Sticking Probability:</label>
+      <input class="margin-b" id="stickingProbability" type="number" value="1.0" step="0.05" min="0.0" max="1.0">
 
-      <br><br>
+      <br>
+
+      <button class="margin-b" type="button" id="start">Start</button>
+
+      <br>
 
       <div id="model"></div>
       <span id="workerPath" style="display:none">worker.js</span>

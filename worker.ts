@@ -2,7 +2,7 @@ import { choice, randrange, zeros } from "./utils";
 
 
 onmessage = function (e) {
-    let [lattice_size, cluster_size, config] = e.data;
+    let [lattice_size, cluster_size, sticking_probability, config] = e.data;
 
     let padding = 2;
     let lattice = zeros(lattice_size + padding, lattice_size + padding);
@@ -72,6 +72,9 @@ onmessage = function (e) {
                 walking = false;
             } else if (lattice[x+1][y] == 1 || lattice[x-1][y] == 1 ||
                        lattice[x][y+1] == 1 || lattice[x][y-1] == 1) {
+                if (Math.random() > sticking_probability) {
+                    continue;
+                }
                 lattice[x][y] = 1;
                 num_particles++;
                 walking = false;

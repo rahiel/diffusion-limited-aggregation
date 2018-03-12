@@ -20,6 +20,7 @@ function start() {
     let config = (<HTMLInputElement>document.getElementById("config")).value;
     let latticeSize = parseInt((<HTMLInputElement>document.getElementById("latticeSize")).value);
     let clusterSize = parseInt((<HTMLInputElement>document.getElementById("clusterSize")).value);
+    let stickingProbability = parseFloat((<HTMLInputElement>document.getElementById("stickingProbability")).value);
 
     let scale = 2;
     let [width, height] = [latticeSize * scale, latticeSize * scale];
@@ -38,7 +39,7 @@ function start() {
         render();
     }
 
-    worker.postMessage([latticeSize, clusterSize, config]);
+    worker.postMessage([latticeSize, clusterSize, stickingProbability, config]);
 }
 
 
